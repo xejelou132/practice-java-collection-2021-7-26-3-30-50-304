@@ -4,6 +4,7 @@ import org.apache.commons.lang3.NotImplementedException;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StreamMap {
 
@@ -18,14 +19,24 @@ public class StreamMap {
     }
 
     public List<Integer> getTriple(List<Integer> numbers) {
-        throw new NotImplementedException();
+        return numbers.stream()
+                .map(integer -> integer * 3)
+                .collect(Collectors.toList());
+        //throw new NotImplementedException();
     }
 
     public List<String> mapLetter(List<Integer> numbers) {
-        throw new NotImplementedException();
+     return  numbers.stream()
+             .map(integer -> ALPHABET.get(integer-1))
+             .collect(Collectors.toList());
+
+        //throw new NotImplementedException();
     }
 
     public List<Integer> mapLength(List<String> words) {
-        throw new NotImplementedException();
+        return words.stream()
+                .map(String::length)
+                .collect(Collectors.toList());
+        //throw new NotImplementedException();
     }
 }
